@@ -60,8 +60,10 @@ public class ServerInfoManager {
 				try {
 					bimServer.getDatabase().getMigrator().migrate();
 					setServerState(ServerState.RUNNING);
-				} catch (MigrationException | InconsistentModelsException e) {
-					LOGGER.error("", e);
+				} catch (MigrationException me) {
+					LOGGER.error("", me);
+				} catch (InconsistentModelsException ime) {
+				  LOGGER.error("", ime);
 				}
 			}
 		} else if (bimServer.getDatabase().getMigrator().migrationImpossible()) {

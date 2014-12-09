@@ -206,9 +206,11 @@ public class ClientIfcModel extends IfcModel {
 			try {
 				processDownload(download);
 				modelState = ModelState.FULLY_LOADED;
-			} catch (IfcModelInterfaceException | IOException e) {
-				LOGGER.error("", e);
-			}
+			} catch (IfcModelInterfaceException imie) {
+				LOGGER.error("", imie);
+			} catch (IOException ioe) {
+                                LOGGER.error("", ioe);
+                        }
 		}
 	}
 

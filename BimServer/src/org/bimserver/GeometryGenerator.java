@@ -68,7 +68,7 @@ import org.slf4j.LoggerFactory;
 public class GeometryGenerator {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GeometryGenerator.class);
 	private BimServer bimServer;
-	private final Map<Integer, GeometryData> hashes = new HashMap<>();
+	private final Map<Integer, GeometryData> hashes = new HashMap<Integer, GeometryData>();
 	
 	public GeometryGenerator(BimServer bimServer) {
 		this.bimServer = bimServer;

@@ -343,7 +343,7 @@ public class BimServer {
 
 			longActionManager = new LongActionManager();
 
-			Set<EPackage> packages = new HashSet<>();
+			Set<EPackage> packages = new HashSet<EPackage>();
 			packages.add(Ifc2x3tc1Package.eINSTANCE);
 			packages.add(Ifc4Package.eINSTANCE);
 			templateEngine = new TemplateEngine();

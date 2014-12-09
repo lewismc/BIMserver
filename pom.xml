@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.bimserver</groupId>
+  <artifactId>bimserver-parent</artifactId>
+  <version>1.3.4-SNAPSHOT</version>
+  <name>bimserver-parent</name>
+  <description>The Building Information Modelserver (short: BIMserver) enables you to centralize and manage the information of a construction (or other building related) project.</description>
+  <packaging>pom</packaging>
+  <url>http://bimserver.org/</url>
+  
+  <scm>
+    <connection>scm:git:http://github.com/opensourceBIM/BIMserver.git</connection>
+    <developerConnection>scm:git:https://github.com/opensourceBIM/BIMserver.git</developerConnection>
+    <url>https://github.com/opensourceBIM/BIMserver.git</url>
+    <tag>HEAD</tag>
+  </scm>
+  
+  <modules>
+    <module>AdminGui</module>
+    <module>BimServer</module>
+    <module>BimServerClientLib</module>
+    <module>BuildingSMARTLibrary</module>
+    <module>Builds</module>
+    <module>CityGML</module>
+    <module>ClashDetection</module>
+    <module>Collada</module>
+    <module>DemoPlugins</module>
+    <!--module>Documentation</module-->
+    <module>FileBasedObjectIDM</module>
+    <module>GeneratedSoapClient</module>
+    <module>Ifc</module>
+    <module>IfcEngine</module>
+    <module>IfcPlugins</module>
+    <module>IfcToRdfPlugin</module>
+    <module>JavaModelChecker</module>
+    <module>JavaQueryEngine</module>
+    <module>Mergers</module>
+    <module>MiscSerializers</module>
+    <module>SceneJS</module>
+    <module>Shared</module>
+    <module>TestData</module>
+    <module>TestViewer</module>
+    <module>Tests</module>
+    <module>Tools</module>
+    <module>Utils</module>
+    <module>XsltSerializer</module>
+  </modules>
+  
+  <properties>
+    <!-- General Properties -->
+    <implementation.build>${scmBranch}@r${buildNumber}</implementation.build>
+    <javac.src.version>1.7</javac.src.version>
+    <javac.target.version>1.7</javac.target.version>
+    <maven.build.timestamp.format>yyyy-MM-dd HH:mm:ssZ</maven.build.timestamp.format>
+    <skipTests>false</skipTests>
+    <assembly.finalName>bimserver-${project.build.finalName}</assembly.finalName>
+    <downloads.url>https://github.com/opensourceBIM/BIMserver/releases</downloads.url>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    
+    <!-- Maven Plugin Versioning -->
+    <build-helper-maven-plugin.version>1.9.1</build-helper-maven-plugin.version>
+    <maven-jar-plugin.version>2.5</maven-jar-plugin.version>
+  </properties>
+</project>

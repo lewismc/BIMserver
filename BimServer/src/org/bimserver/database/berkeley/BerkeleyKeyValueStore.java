@@ -67,7 +67,7 @@ public class BerkeleyKeyValueStore implements KeyValueStore {
 	private long lastPrintedCommittedWrites = 0;
 	private static final boolean MONITOR_CURSOR_STACK_TRACES = true;
 	private final AtomicLong cursorCounter = new AtomicLong();
-	private final Map<Long, StackTraceElement[]> openCursors = new ConcurrentHashMap<>();
+	private final Map<Long, StackTraceElement[]> openCursors = new ConcurrentHashMap<Long, StackTraceElement[]>();
 
 	public BerkeleyKeyValueStore(File dataDir) throws DatabaseInitException {
 		if (dataDir.isDirectory()) {

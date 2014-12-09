@@ -59,7 +59,7 @@ public class InternalServicesManager implements NotificationsManagerInterface {
 
 	private final Map<String, ServiceDescriptor> internalServices = new HashMap<String, ServiceDescriptor>();
 	private final Map<String, Bimsie1RemoteServiceInterface> internalRemoteServiceInterfaces = new HashMap<String, Bimsie1RemoteServiceInterface>();
-	private final Map<String, BimServerClientFactory> factories = new HashMap<>();
+	private final Map<String, BimServerClientFactory> factories = new HashMap<String, BimServerClientFactory>();
 	private BimServer bimServer;
 
 	private String url;

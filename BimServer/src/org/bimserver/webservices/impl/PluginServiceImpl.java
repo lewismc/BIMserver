@@ -738,7 +738,7 @@ public class PluginServiceImpl extends GenericServiceImpl implements PluginInter
 		requireRealUserAuthentication();
 		DatabaseSession session = getBimServer().getDatabase().createSession();
 		try {
-			Set<Schema> uniqueSchemas = new HashSet<>();
+			Set<Schema> uniqueSchemas = new HashSet<Schema>();
 			for (Long roid : roids) {
 				Revision revision = session.get(roid, Query.getDefault());
 				for (ConcreteRevision concreteRevision : revision.getConcreteRevisions()) {
@@ -746,7 +746,7 @@ public class PluginServiceImpl extends GenericServiceImpl implements PluginInter
 				}
 			}
 
-			Set<Schema> schemaOr = new HashSet<>();
+			Set<Schema> schemaOr = new HashSet<Schema>();
 			
 			if (uniqueSchemas.size() == 0) {
 				// Wierd, no schemas

@@ -25,7 +25,7 @@ public class SchemaConverterManager {
 	}
 
 	public Set<Schema> getSchemaTargets(Schema source) {
-		Set<Schema> result = new HashSet<>();
+		Set<Schema> result = new HashSet<Schema>();
 		for (SchemaConverterFactory factory : converters.values()) {
 			if (factory.getSourceSchema() == source) {
 				result.add(factory.getTargetSchema());

@@ -58,7 +58,7 @@ public abstract class AbstractDownloadDatabaseAction<T> extends BimDatabaseActio
 				new GeometryGenerator(bimServer).generateGeometry(authorization.getUoid(), pluginManager, getDatabaseSession(), model, project.getId(), concreteRevision.getId(), false, null);
 			} else {
 				EClass productClass = model.getPackageMetaData().getEClass("IfcProduct");
-				List<IdEObject> allWithSubTypes = new ArrayList<>(model.getAllWithSubTypes(productClass));
+				List<IdEObject> allWithSubTypes = new ArrayList<IdEObject>(model.getAllWithSubTypes(productClass));
 				for (IdEObject ifcProduct : allWithSubTypes) {
 					ifcProduct.loadExplicit();
 					GeometryInfo geometryInfo = (GeometryInfo) ifcProduct.eGet(productClass.getEStructuralFeature("geometry"));
