@@ -22,6 +22,26 @@
         <outputDirectory>target/classes</outputDirectory>
         <finalName>${project.artifactId}-${project.version}</finalName>
         <sourceDirectory>src/</sourceDirectory>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>build-helper-maven-plugin</artifactId>
+                <version>${build-helper-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <phase>generate-sources</phase>
+                        <goals>
+                            <goal>add-source</goal>
+                        </goals>
+                        <configuration>
+                            <sources>
+                                <source>generated</source>
+                            </sources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
     <dependencies>
         <!-- Internal Dependencies -->
@@ -77,9 +97,9 @@
             <version>1.2</version>
         </dependency>
         <dependency>
-            <groupId>tomcat</groupId>
+            <groupId>commons-fileupload</groupId>
             <artifactId>commons-fileupload</artifactId>
-            <version>1.0-5.5.23</version>
+            <version>1.3.1</version>
         </dependency>
         <dependency>
             <groupId>commons-lang</groupId>
@@ -710,7 +730,7 @@
         <dependency>
             <groupId>log4j</groupId>
             <artifactId>log4j</artifactId>
-            <version>1.2.16</version>
+            <version>1.2.17</version>
         </dependency>
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -752,9 +772,9 @@
         
         <!-- Tomcat Dependencies -->
         <dependency>
-            <groupId>org.apache.tomcat</groupId>
-            <artifactId>catalina</artifactId>
-            <version>6.0.43</version>
+	    <groupId>org.apache.tomcat</groupId>
+	    <artifactId>tomcat-catalina</artifactId>
+	    <version>7.0.57</version>
         </dependency>
         <dependency>
             <groupId>org.apache.tomcat</groupId>
@@ -770,6 +790,17 @@
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-util</artifactId>
             <version>7.0.57</version>
+        </dependency>
+        
+        <dependency>
+	    <groupId>org.openid4java</groupId>
+	    <artifactId>openid4java</artifactId>
+	    <version>0.9.8</version>
+        </dependency>
+        <dependency>
+	    <groupId>com.sleepycat</groupId>
+	    <artifactId>je</artifactId>
+	    <version>5.0.73</version>
         </dependency>
     </dependencies>
 </project>
