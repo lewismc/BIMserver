@@ -65,4 +65,13 @@
             </plugin>
         </plugins>
     </build>
+    
+    <dependencies>
+        <!-- Internal Dependencies -->
+        <dependency>
+            <groupId>org.bimserver</groupId>
+            <artifactId>bimserver-shared</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 </project>

@@ -10,54 +10,38 @@
         <relativePath>../</relativePath>
     </parent>
     <artifactId>bimserver-shared</artifactId>
-    <!--packaging>bundle</packaging-->
     
     <properties>
         <osgi.import>*</osgi.import>
         <osgi.export>org.bimserver*;version="${project.version}";-noimport:=true</osgi.export>
     </properties>
     
+    <repositories>
+        <repository>
+            <id>file.repo</id>
+            <url>file://${project.basedir}/repo</url>
+        </repository>
+    </repositories>
+    
     <build>
         <directory>target</directory>
         <outputDirectory>target/classes</outputDirectory>
         <finalName>${project.artifactId}-${project.version}</finalName>
-        <!--testOutputDirectory>target/test-classes</testOutputDirectory-->
-        <!--testSourceDirectory>src/test/java</testSourceDirectory-->
-        <sourceDirectory>src/</sourceDirectory>
-        <testResources>
-            <testResource>
-                <directory>src/test/conf/</directory>
-                <includes>
-                    <include>**</include>
-                </includes>
-            </testResource>
-        </testResources>
+        <sourceDirectory>src/main/java</sourceDirectory>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>${maven-jar-plugin.version}</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>test-jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>build-helper-maven-plugin</artifactId>
                 <version>${build-helper-maven-plugin.version}</version>
                 <executions>
                     <execution>
-                        <phase>generate-test-sources</phase>
+                        <phase>generate-sources</phase>
                         <goals>
-                            <goal>add-test-source</goal>
+                            <goal>add-source</goal>
                         </goals>
                         <configuration>
                             <sources>
-                                <source>src/examples/java</source>
+                                <source>generated</source>
                             </sources>
                         </configuration>
                     </execution>
@@ -65,4 +49,121 @@
             </plugin>
         </plugins>
     </build>
+    
+    <dependencies>
+        <!-- Internal Dependencies -->
+        <dependency>
+            <groupId>org.bimserver</groupId>
+            <artifactId>bimserver-utils</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.bimserver</groupId>
+            <artifactId>bimserver-utility-genclasses</artifactId>
+            <version>1.3.4-SNAPSHOT</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/repo/org/bimserver/bimserver-utility-genclasses/1.3.4-SNAPSHOT/bimserver-utility-genclasses-1.3.4-20141208.060726-1.jar</systemPath>
+        </dependency>
+        <!-- END Internal Dependencies -->
+        <dependency>
+            <groupId>org.openmali</groupId>
+            <artifactId>openmali</artifactId>
+            <version>1.0</version>
+            <scope>system</scope>
+            <systemPath>${project.basedir}/libext/openmali.jar</systemPath>
+        </dependency>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>2.6.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.javassist</groupId>
+            <artifactId>javassist</artifactId>
+            <version>3.18.2-GA</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.code.gson</groupId>
+            <artifactId>gson</artifactId>
+            <version>2.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.mail</groupId>
+            <artifactId>mail</artifactId>
+            <version>1.4.7</version>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>servlet-api</artifactId>
+            <version>2.4-20040521</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.7</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.httpcomponents</groupId>
+            <artifactId>httpclient</artifactId>
+            <version>4.2.1</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-cli</groupId>
+            <artifactId>commons-cli</artifactId>
+            <version>1.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jettison</groupId>
+            <artifactId>jettison</artifactId>
+            <version>1.3.3</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>16.0.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore</artifactId>
+            <version>2.9.1-v20130827-0309</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.common</artifactId>
+            <version>2.9.1-v20130827-0309</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.emf</groupId>
+            <artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+            <version>2.9.1-v20130827-0309</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.tycho</groupId>
+            <artifactId>org.eclipse.jdt.core</artifactId>
+            <version>3.8.1.v20120531-0637</version>
+        </dependency>
+        <dependency>
+            <groupId>org.eclipse.birt.runtime</groupId>
+            <artifactId>org.eclipse.equinox.common</artifactId>
+            <version>3.6.100.v20120522-1841</version>
+        </dependency>
+        
+        <!-- Logging Dependencies -->
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.16</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+        <!-- END Logging Dependencies -->
+    </dependencies>
 </project>
